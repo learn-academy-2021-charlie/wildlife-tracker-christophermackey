@@ -71,9 +71,16 @@ skip_before_action :verify_authenticity_token
 
 ```
 
-* Story: As the consumer of the API I can create a sighting of an animal with date (use the datetime datatype), a latitude, and a longitude.
-Hint: An animal has_many sightings. (rails g resource Sighting animal_id:integer ...)
-
+### Story: As the consumer of the API I can create a sighting of an animal with date (use the datetime datatype), a latitude, and a longitude.
+## Hint: An animal has_many sightings. (rails g resource Sighting animal_id:integer ...)
+- create sighting model with animal_id, date, latitude, longitude
+```
+rails g resource Sighting animal_id:integer date:datetime latitude:string longitude:string
+```
+- create association between animal and sighting but adding code below to Sighting model
+```
+belongs_to :animal
+```
 * Story: As the consumer of the API I can update an animal sighting in the database.
 
 * Story: As the consumer of the API I can destroy an animal sighting in the database.
